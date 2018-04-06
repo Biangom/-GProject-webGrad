@@ -1,18 +1,24 @@
 <!DOCTYPE HTML>
 
-<span id="ajaxButton" style="cursor: pointer; text-decoration: underline">
-  Make a request
-</span>
-<script type="text/javascript">
+
+<body>
+    
+  <span id="ajaxButton" style="cursor: pointer; text-decoration: underline">
+    Make a request
+  </span>
+
+  <script type="text/javascript">
 (function() {
   var httpRequest = false;
-  document.getElementById("ajaxButton").onclick = function() { makeRequest('test.xml'); };
+  document.getElementById("ajaxButton").onclick = function() { makeRequest('test.xml'); }; //'text.xml'
 
-  function makeRequest(url) 
+  httpRequest.overrideMimeType('application/xml');
+
+  function makeRequest(url) {
     if (window.XMLHttpRequest) { // Mozilla, Safari, ...
       httpRequest = new XMLHttpRequest();
       if(httpRequest.overrideMimeType) {
-          httpRequest.overrideMimeType('test.xml');
+          httpRequest.overrideMimeType('application/xml');
       }
     } else if (window.ActiveXObject) { // IE
       try {
@@ -35,13 +41,15 @@
     httpRequest.send();
   }
 
+  console.log(httpRequest.responseXML);
+
   function alertContents() {
     if (httpRequest.readyState === 4) {
         // HTTP 서버 응답의 상태 코드
         // 200이면 정상
       if (httpRequest.status === 200) {
-        var xmldoc = http_request.responseXML;
-        var root_node = xmldoc.getElementsByTagName('root').item(0);
+        var xmldoc = httpRequest.responseXML;
+        var root_node = xmldoc.getElementsByTagName("root")[0];
         alert(root_node.firstChild.data);
         // alert(httpRequest.responseText);
       } else {
@@ -51,3 +59,5 @@
   }
 })();
 </script>
+
+</body>
