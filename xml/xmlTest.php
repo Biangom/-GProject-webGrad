@@ -10,10 +10,11 @@
   <script type="text/javascript">
 (function() {
   var httpRequest = false;
-  document.getElementById("ajaxButton").onclick = function() { makeRequest('test.xml'); }; //'text.xml'
+  document.getElementById("ajaxButton").onclick = function() { makeRequest('test.xml'); }; //'test.xml'
 
   httpRequest.overrideMimeType('application/xml');
 
+  
   function makeRequest(url) {
     if (window.XMLHttpRequest) { // Mozilla, Safari, ...
       httpRequest = new XMLHttpRequest();
@@ -36,9 +37,9 @@
       alert('Giving up :( Cannot create an XMLHTTP instance');
       return false;
     }
-    httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('GET', url, true);
-    httpRequest.send();
+   httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('GET', url, false);
+    httpRequest.send(null);
   }
 
   console.log(httpRequest.responseXML);
@@ -61,3 +62,4 @@
 </script>
 
 </body>
+
