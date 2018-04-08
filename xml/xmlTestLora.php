@@ -18,15 +18,22 @@
             xmlDoc = parser.parseFromString(xhr_data.responseText, "text/xml");
        }
     }
-    xhr_data.open("GET", "https://onem2m.sktiot.com:9443/ThingPlug?division=searchDevice&function=myDevice&startIndex=1&countPerPage=6");
+    // false하니까 잘된다.
+    xhr_data.open("GET", "https://onem2m.sktiot.com:9443/ThingPlug?division=searchDevice&function=myDevice&startIndex=1&countPerPage=6",false);
 
     xhr_data.setRequestHeader('X-M2M-RI', '0');
     xhr_data.setRequestHeader('X-M2M-Origin', '0');
     xhr_data.setRequestHeader('ukey', 'R1VLNHhRWDBhQUpkSEI0TGhIUUI3d09rOS9HQmo0REt3R0swelZOWWZPcHNvTnJpYzZFSEt2c3NKQnk3RVA4ZQ==');
     
-    xhr_data.send();
+    xhr_data.send(null);
 
-    console.log(xhr_data.response);
+    console.log(xhr_data.responseXML);
+    console.log("hellow world"); 
+
+    var xmldoc = xhr_data.responseXML;
+    var root_node = xmldoc.getElementsByTagName('ThingPlug')[0].getElementsByTagName('result_code')[0];
+
+    console.log(root_node.firstChild.data);
 
     // var xmldoc = httpRequest.responseXML;
     // var root_node = xmldoc.getElementsByTagName("root")[0];
