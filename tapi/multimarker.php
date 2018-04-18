@@ -58,7 +58,8 @@
 					markerLayer.addMarker(marker); //마커 레이어에 마커 추가
 				}
 				i = i + 0.0001;
-			}  
+			} 
+            setInterval(initTmap, 3000);
 			// 맵 생성 실행
 			//initTmap();
 		</script>
