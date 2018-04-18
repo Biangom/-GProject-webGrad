@@ -31,7 +31,7 @@
     console.log("hellow world"); 
 
     var xmldoc = xhr_data.responseXML;
-    var root_node = xmldoc.getElementsByTagName('ThingPlug')[0].getElementsByTagName('result_code')[0];
+    var root_node = xmldoc.getElementsByTagName('ThingPlug')[0].getElementsByTagName('devices')[0].getElementsByTagName('device')[0].getElementsByTagName('location_Addr')[0];
 
     console.log(root_node.firstChild.data);
 
