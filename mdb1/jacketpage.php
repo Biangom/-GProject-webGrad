@@ -10,9 +10,11 @@
 
                     <h4 class="mb-2 mb-sm-0 pt-1">
                         <a href="#" target="_blank">Jacket Infomation</a>
+                        <span>/</span>
+                        <span>Dashboard</span>
                     </h4>
 
-                    <?php /*
+
                     <!-- <div class="text-right"> -->
                     <div>
 
@@ -31,7 +33,7 @@
                         </button>
 
                     </form>
-                */?>
+
                 </div>
 
             </div>
@@ -59,6 +61,7 @@
                                 <!-- Table head -->
                                 <thead class="blue lighten-4">
                                     <tr>
+                                        <th>#</th>
                                         <th>SN</th>
                                         <th>EmergencyOn</th>
                                         <th>WarningOn</th>
@@ -68,45 +71,24 @@
 
                                 <!-- Table body -->
                                 <tbody>
-                                    <?php
-                                         $conn = mysqli_connect('localhost', 'root', 'qqwweerr', 'yjacket');
-                                        $query = "select * from lifejacket" ;
-                                        $result = mysqli_query($conn, $query); 
-                                        $rowList = array();
-                                        while($row = $result->fetch_assoc())
-                                        {?>
-                                        <tr>
-                                            <td><?=$row['SN']?></td>
-                                            <td><?php 
-                                                if($row['EmergencyOn'] == '0')
-                                                {
-                                                    echo "Off";
-                                                }
-                                                else
-                                                {
-                                                    echo "On";
-                                                }
-                                                ?>    
-                                            </td>
-                                            <td>
-                                                <?php 
-                                                if($row['warningOn'] == '0')
-                                                {
-                                                    echo "Off";
-                                                }
-                                                else
-                                                {
-                                                    echo "On";
-                                                }
-                                                ?> 
-                                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalLoginAvatarDemo" style="float: right;">Signal</button>
-                                            </td>
-
-                                        </tr>
-
-                                        <?php
-                                        }    
-                                    ?>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Cell 1</td>
+                                        <td>Cell 2</td>
+                                        <td>Cell 3</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Cell 4</td>
+                                        <td>Cell 5</td>
+                                        <td>Cell 6</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Cell 7</td>
+                                        <td>Cell 8</td>
+                                        <td>Cell 9</td>
+                                    </tr>
                                 </tbody>
                                 <!-- Table body -->
                             </table>
@@ -143,23 +125,23 @@
 
                                     <h5 class="mt-1 mb-2">Jacket Register</h5>
 
-                                    <form action="./insert/signal.php" method="post" id="formRegister">
+                                    <form action="./insert/jacket.php" method="get" id="formRegister">
                                         <div class="md-form ml-0 mr-0">
                                         <!-- <input type="password" type="text" id="form1" class="form-control ml-0"> -->
-                                            <input type="text" id="form1" class="form-control ml-0" name="SN">
-                                            <label for="form1" class="ml-0" > Serial Number</label>
+                                            <input type="text" id="form1" class="form-control ml-0">
+                                            <label for="form1" class="ml-0"> Serial Number</label>
 
-                                        </div>
-                                       <div class="md-form ml-0 mr-0">
-
-                                            <input type="text" id="form2" class="form-control ml-0" name="pw">
-                                            <label for="form2" class="ml-0" >Enter password</label>
                                         </div>
                                         
+                                        <div class="md-form ml-0 mr-0">
+
+                                            <input type="text" type="text" id="form2" class="form-control ml-0">
+                                            <label for="form2" class="ml-0">Enter password</label>
+                                        </div>
                                     </form>
 
                                     <div class="text-center mt-4">
-                                        <button class="btn btn-cyan" type="submit" form="formRegister"> Signal
+                                        <button class="btn btn-cyan" type="submit" form="formRegister"> Register
                                             <i class="fa fa-sign-in ml-1"></i>
                                         </button>
                                     </div>
