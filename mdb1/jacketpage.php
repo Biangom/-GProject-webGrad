@@ -9,18 +9,29 @@
                 <div class="card-body d-sm-flex justify-content-between">
 
                     <h4 class="mb-2 mb-sm-0 pt-1">
-                        <a href="#" target="_blank">Rent Table</a>
+                        <a href="#" target="_blank">Jacket Infomation</a>
+                        <span>/</span>
+                        <span>Dashboard</span>
                     </h4>
 
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalLoginAvatarDemo">Register</button>
-<!--
+
+                    <!-- <div class="text-right"> -->
+                    <div>
+
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalLoginAvatarDemo">Register </button>
+                        <!-- <br> -->
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalLRFormDemo">123</button>
+
+                    </div>
+                    
+
                     <form class="d-flex justify-content-center">
-                        <!-- Default input 
-                        <input type="search" placeholder="" aria-label="Search" class="form-control">
+                        <!-- Default input -->
+                        <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
                         <button class="btn btn-primary btn-sm my-0 p" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
--->
+
                     </form>
 
                 </div>
@@ -52,39 +63,32 @@
                                     <tr>
                                         <th>#</th>
                                         <th>SN</th>
-                                        <th>대여인</th>
-                                        <th>연락처</th>
-                                        <th>착용자</th>
-                                        <th>착용자 나이</th>
-                                        <th>빌린시간</th>
+                                        <th>EmergencyOn</th>
+                                        <th>WarningOn</th>
                                     </tr>
                                 </thead>
                                 <!-- Table head -->
 
                                 <!-- Table body -->
                                 <tbody>
-                                    <?php
-                                        $conn = mysqli_connect('localhost', 'root', 'root', 'test');
-                                        $query = "select * from rent" ;
-                                        $result = mysqli_query($conn, $query); 
-                                        $rowList = array();
-                                        while($row = $result->fetch_assoc())
-                                        {?>
-                                        <tr>
-                                            <th scope="row"><?=$row['RentNo']?></th>
-                                            <td><?=$row['SN']?></td>
-                                            <td><?=$row['user']?></td>
-                                            <td><?=$row['hp']?></td>
-                                            <td><?=$row['wearer']?></td>
-                                            <td><?=$row['WearerAge']?></td>
-                                            <td><?=$row['renttime']?></td>
-                                        </tr>
-
-                                        <?php
-                                        }    
-                                    ?>
-                                    
-                                    
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Cell 1</td>
+                                        <td>Cell 2</td>
+                                        <td>Cell 3</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Cell 4</td>
+                                        <td>Cell 5</td>
+                                        <td>Cell 6</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Cell 7</td>
+                                        <td>Cell 8</td>
+                                        <td>Cell 9</td>
+                                    </tr>
                                 </tbody>
                                 <!-- Table body -->
                             </table>
@@ -101,12 +105,7 @@
             </div>
             <!--Grid row-->
 
-
-           
-
-        </div>
-
-        <!--Card-->
+            <!--Card-->
             <!-- <div class="card"> -->
                 <!--Section: Modals-->
                 <section>
@@ -126,34 +125,19 @@
 
                                     <h5 class="mt-1 mb-2">Jacket Register</h5>
 
-                                    <form action="./insert/jacket.php" method="post" id="formRegister">
+                                    <form action="./insert/jacket.php" method="get" id="formRegister">
                                         <div class="md-form ml-0 mr-0">
                                         <!-- <input type="password" type="text" id="form1" class="form-control ml-0"> -->
-                                            <input type="text" id="form1" class="form-control ml-0" name="SN">
+                                            <input type="text" id="form1" class="form-control ml-0">
                                             <label for="form1" class="ml-0"> Serial Number</label>
-                                        </div>
 
-                                        <div class="md-form ml-0 mr-0">
-                                        <!-- <input type="password" type="text" id="form1" class="form-control ml-0"> -->
-                                            <input type="text" id="form1" class="form-control ml-0" name="hp">
-                                            <label for="form1" class="ml-0"> 연락처</label>
                                         </div>
+                                        
                                         <div class="md-form ml-0 mr-0">
-                                        <!-- <input type="password" type="text" id="form1" class="form-control ml-0"> -->
-                                            <input type="text" id="form1" class="form-control ml-0" name="user">
-                                            <label for="form1" class="ml-0"> 대여인</label>
+
+                                            <input type="text" type="text" id="form2" class="form-control ml-0">
+                                            <label for="form2" class="ml-0">Enter password</label>
                                         </div>
-                                        <div class="md-form ml-0 mr-0">
-                                        <!-- <input type="password" type="text" id="form1" class="form-control ml-0"> -->
-                                            <input type="text" id="form1" class="form-control ml-0" name="wearer">
-                                            <label for="form1" class="ml-0"> 착용자</label>
-                                        </div>
-                                        <div class="md-form ml-0 mr-0">
-                                        <!-- <input type="password" type="text" id="form1" class="form-control ml-0"> -->
-                                            <input type="text" id="form1" class="form-control ml-0" name="WearerAge">
-                                            <label for="form1" class="ml-0"> 착용자 나이</label>
-                                        </div>
-                                    
                                     </form>
 
                                     <div class="text-center mt-4">
@@ -193,5 +177,14 @@
 
                 </section>
                 <!--Section: Modals-->
+
+            <!-- </div> -->
+            <!--/.Card-->
+
+
+
+           
+
+        </div>
     </main>
     <!--Main layout-->

@@ -1410,11 +1410,6 @@ button.bg-light:focus {
   src: url("../font/roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../font/roboto/Roboto-Bold.woff2") format("woff2"), url("../font/roboto/Roboto-Bold.woff") format("woff"), url("../font/roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700; }
 
-@font-face{
-  font-family:'gilbert'; 
-  src:url('../font/gilbert.otf')
-}
-
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 300; }

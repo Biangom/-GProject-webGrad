@@ -58,11 +58,9 @@
 
                     <h4 class="mb-2 mb-sm-0 pt-1">
                         <a href="#" target="_blank">Jacket Infomation</a>
-                        <span>/</span>
-                        <span>Dashboard</span>
                     </h4>
 
-
+                    <?php /*
                     <!-- <div class="text-right"> -->
                     <div>
 
@@ -87,7 +85,7 @@
                         </button>
 
                     </form>
-
+                */?>
                 </div>
 
             </div>
@@ -115,7 +113,6 @@
                                 <!-- Table head -->
                                 <thead class="blue lighten-4">
                                     <tr>
-                                        <th>#</th>
                                         <th>SN</th>
                                         <th>EmergencyOn</th>
                                         <th>WarningOn</th>
@@ -125,6 +122,7 @@
 
                                 <!-- Table body -->
                                 <tbody>
+<<<<<<< HEAD
 
                                 <?		
                                     // for ( $i = $start; $i < $total_record; $i++)   
@@ -191,6 +189,47 @@
                                     </tr>
                                 </tbody> -->
 
+=======
+                                    <?php
+                                         $conn = mysqli_connect('localhost', 'root', 'qqwweerr', 'yjacket');
+                                        $query = "select * from lifejacket" ;
+                                        $result = mysqli_query($conn, $query); 
+                                        $rowList = array();
+                                        while($row = $result->fetch_assoc())
+                                        {?>
+                                        <tr>
+                                            <td><?=$row['SN']?></td>
+                                            <td><?php 
+                                                if($row['EmergencyOn'] == '0')
+                                                {
+                                                    echo "Off";
+                                                }
+                                                else
+                                                {
+                                                    echo "On";
+                                                }
+                                                ?>    
+                                            </td>
+                                            <td>
+                                                <?php 
+                                                if($row['warningOn'] == '0')
+                                                {
+                                                    echo "Off";
+                                                }
+                                                else
+                                                {
+                                                    echo "On";
+                                                }
+                                                ?> 
+                                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalLoginAvatarDemo" style="float: right;">Signal</button>
+                                            </td>
+
+                                        </tr>
+
+                                        <?php
+                                        }    
+                                    ?>
+>>>>>>> bb80f589aa1006472b23d06001780c566425a9d5
                                 </tbody>
                                 <!-- Table body -->
                             </table>
@@ -229,6 +268,7 @@
 
                                     <h5 class="mt-1 mb-2">Jacket Register</h5>
 
+<<<<<<< HEAD
                                     <form action="./insert/jacket.php" method="post" id="formRegister">
                                         <div class="md-form ml-0 mr-0">
                                         <!-- <input type="password" type="text" id="form1" class="form-control ml-0"> -->
@@ -304,11 +344,29 @@
                                             <input type="text" id="form1" name="serial" class="form-control ml-0">
                                             <label for="form1" class="ml-0"> Serial Number</label>
 
+=======
+                                    <form action="./insert/signal.php" method="post" id="formRegister">
+                                        <div class="md-form ml-0 mr-0">
+                                        <!-- <input type="password" type="text" id="form1" class="form-control ml-0"> -->
+                                            <input type="text" id="form1" class="form-control ml-0" name="SN">
+                                            <label for="form1" class="ml-0" > Serial Number</label>
+
                                         </div>
+                                       <div class="md-form ml-0 mr-0">
+
+                                            <input type="text" id="form2" class="form-control ml-0" name="pw">
+                                            <label for="form2" class="ml-0" >Enter password</label>
+>>>>>>> bb80f589aa1006472b23d06001780c566425a9d5
+                                        </div>
+                                        
                                     </form>
 
                                     <div class="text-center mt-4">
+<<<<<<< HEAD
                                         <button class="btn btn-cyan" type="submit" form="formRegister"> Delete
+=======
+                                        <button class="btn btn-cyan" type="submit" form="formRegister"> Signal
+>>>>>>> bb80f589aa1006472b23d06001780c566425a9d5
                                             <i class="fa fa-sign-in ml-1"></i>
                                         </button>
                                     </div>
